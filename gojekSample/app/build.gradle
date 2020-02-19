@@ -1,18 +1,17 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.2"
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
     defaultConfig {
         applicationId "com.bins.gojeksample"
-        minSdkVersion 19
-        targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -20,32 +19,67 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        debug {
+            debuggable true
+        }
+    }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    dataBinding {
+        enabled = true
     }
 }
 
 dependencies {
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.core:core-ktx:1.2.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation 'com.google.android.material:material:1.1.0'
+    implementation rootProject.ext.appCompat
+    implementation rootProject.ext.kotlinStdLib
+    implementation rootProject.ext.ktxCore
+    implementation rootProject.ext.appCompat
+    implementation rootProject.ext.legacySupport
+    implementation rootProject.ext.constraintLayout
+    implementation rootProject.ext.recyclerView
+    implementation rootProject.ext.material
+    implementation rootProject.ext.retrofit
+    implementation rootProject.ext.retrofitGsonConverter
+    implementation rootProject.ext.retrofitLoggingInterceptors
+    implementation rootProject.ext.retrofitRxAdapter
+    implementation rootProject.ext.rxAndroid
+    implementation rootProject.ext.room
+    implementation rootProject.ext.lifecycleExtensions
+    implementation rootProject.ext.koin
+    implementation rootProject.ext.glide
+    implementation(rootProject.ext.glideOkhttp) {
+        exclude group: 'glide-parent'
+    }
+    implementation rootProject.ext.legacySupport
+    kapt rootProject.ext.glideCompiler
+    implementation rootProject.ext.RXKotlin
 
-
-    testImplementation 'junit:junit:4.13'
+    testImplementation rootProject.ext.junit
 
     // Core library
-    androidTestImplementation 'androidx.test:core:1.2.0'
+    androidTestImplementation rootProject.ext.testCore
 
     // AndroidJUnitRunner and JUnit Rules
-    androidTestImplementation 'androidx.test:rules:1.2.0'
-    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation rootProject.ext.testRules
+    androidTestImplementation rootProject.ext.testRunner
 
     // Assertions
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.ext:truth:1.2.0'
-    androidTestImplementation 'com.google.truth:truth:0.42'
+    androidTestImplementation rootProject.ext.testJunit
+    androidTestImplementation rootProject.ext.testTruth
+    androidTestImplementation rootProject.ext.googleTestTruth
 
     // Espresso dependencies
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    androidTestImplementation rootProject.ext.expresso
+
+    implementation project(':domain')
 }
