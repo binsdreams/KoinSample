@@ -1,10 +1,11 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
-
 
     defaultConfig {
         minSdkVersion 19
@@ -32,6 +33,8 @@ dependencies {
     implementation rootProject.ext.ktxCore
     testImplementation rootProject.ext.junit
 
+    implementation  rootProject.ext.rxAndroid
+
     // Core library
     androidTestImplementation rootProject.ext.testCore
 
@@ -47,5 +50,5 @@ dependencies {
     // Espresso dependencies
     androidTestImplementation rootProject.ext.expresso
 
-    implementation project(':datalayer')
+    api project(':datalayer')
 }
