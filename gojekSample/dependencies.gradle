@@ -13,6 +13,7 @@ ext {
     def retrofit_version = '2.7.1'
     def testLibVersion = '1.2.0'
     def espressoVersion = '3.2.0'
+    def coroutines_version = "1.1.1"
 
     ktxCore = "androidx.core:core-ktx:1.2.0"
     kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -21,8 +22,12 @@ ext {
     retrofitLoggingInterceptors = "com.squareup.okhttp3:logging-interceptor:3.8.0"
     retrofitRxAdapter = "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
 
+    coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
+    coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
+    coroutinesReactive = "org.jetbrains.kotlinx:kotlinx-coroutines-reactive:$coroutines_version"
+    retrofitCoroutinesConverter = "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2"
+
     koin = "org.koin:koin-android-viewmodel:1.0.1"
-    rxAndroid = "io.reactivex.rxjava2:rxandroid:2.1.0"
     room = "androidx.room:room-runtime:$room_version"
     rxRoom = "androidx.room:room-rxjava2:$room_version"
     roomCompiler = "androidx.room:room-compiler:2.2.3"
@@ -35,7 +40,8 @@ ext {
     glide =  "com.github.bumptech.glide:glide:$glide_version"
     glideOkhttp = "com.github.bumptech.glide:okhttp3-integration:$glide_version"
     glideCompiler =  "com.github.bumptech.glide:compiler:$glide_version"
-    RXKotlin = 'io.reactivex.rxjava2:rxkotlin:2.4.0'
+
+
 
     //testing
     junit = 'junit:junit:4.13'

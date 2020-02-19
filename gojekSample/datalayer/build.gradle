@@ -41,6 +41,8 @@ dependencies {
     implementation rootProject.ext.rxRoom
     kapt rootProject.ext.roomCompiler
 
+    implementation rootProject.ext.coroutinesReactive
+
     // Core library
     androidTestImplementation rootProject.ext.testCore
 

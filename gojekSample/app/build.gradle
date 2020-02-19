@@ -52,7 +52,6 @@ dependencies {
     implementation rootProject.ext.retrofitGsonConverter
     implementation rootProject.ext.retrofitLoggingInterceptors
     implementation rootProject.ext.retrofitRxAdapter
-    implementation rootProject.ext.rxAndroid
     implementation rootProject.ext.room
     implementation rootProject.ext.lifecycleExtensions
     implementation rootProject.ext.koin
@@ -61,23 +60,23 @@ dependencies {
         exclude group: 'glide-parent'
     }
     implementation rootProject.ext.legacySupport
+
+    //Testing lib
     kapt rootProject.ext.glideCompiler
-    implementation rootProject.ext.RXKotlin
+    //coroutines
+    implementation rootProject.ext.coroutines
+    implementation rootProject.ext.coroutinesAndroid
 
     testImplementation rootProject.ext.junit
-
     // Core library
     androidTestImplementation rootProject.ext.testCore
-
     // AndroidJUnitRunner and JUnit Rules
     androidTestImplementation rootProject.ext.testRules
     androidTestImplementation rootProject.ext.testRunner
-
     // Assertions
     androidTestImplementation rootProject.ext.testJunit
     androidTestImplementation rootProject.ext.testTruth
     androidTestImplementation rootProject.ext.googleTestTruth
-
     // Espresso dependencies
     androidTestImplementation rootProject.ext.expresso
 
