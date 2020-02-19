@@ -40,5 +40,10 @@ class TrendingItemVM constructor(private var repoItem: TrendingData?) : BaseObse
         return View.GONE
     }
 
+    fun onRowClick(): View.OnClickListener? {
+        return View.OnClickListener {
+            notifyChange()
+        }
+    }
 
 }

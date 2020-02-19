@@ -13,7 +13,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:context=".MainActivity"
-        android:paddingBottom="@dimen/fab_margin">
+        android:paddingBottom="@dimen/fab_margin"
+        android:clickable="true"
+        android:focusableInTouchMode="true"
+        android:onClick="@{trendingRepo.onRowClick()}"
+        android:background="@drawable/rv_selector_bg">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/avatarImage"
