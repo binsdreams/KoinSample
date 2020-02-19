@@ -2,9 +2,9 @@ package com.bins.gojeksample
 
 import androidx.lifecycle.MutableLiveData
 import com.bins.common.BaseViewModel
-import com.bins.domain.entity.Data
-import com.bins.domain.entity.TrendingData
 import com.bins.domain.usecase.TrendingRepoUseCase
+import com.bins.entity.Data
+import com.bins.entity.TrendingData
 import com.bins.mapper.TrendingRepoDomainToPresentationMapper
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.consumeEach

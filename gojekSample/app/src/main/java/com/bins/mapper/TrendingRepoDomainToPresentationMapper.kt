@@ -1,9 +1,9 @@
 package com.bins.mapper
 
-import com.bins.domain.entity.Data
 import com.bins.domain.entity.DataEntity
-import com.bins.domain.entity.TrendingData
 import com.bins.domain.entity.TrendingDomainEntity
+import com.bins.entity.Data
+import com.bins.entity.TrendingData
 
 class TrendingRepoDomainToPresentationMapper {
 

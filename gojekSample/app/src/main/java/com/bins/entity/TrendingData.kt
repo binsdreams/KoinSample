@@ -1,4 +1,4 @@
-package com.bins.domain.entity
+package com.bins.entity
 
 
 data class TrendingData(

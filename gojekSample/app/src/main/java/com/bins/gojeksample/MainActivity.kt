@@ -4,15 +4,41 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.bins.entity.Data
 import kotlinx.android.synthetic.main.activity_main.*
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
+
+    private val mainViewModel: MainViewModel by viewModel()
+    private var trendingAdapter =TrendingAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
+
+        recyclerViewData.layoutManager = LinearLayoutManager(this)
+        trendingAdapter = TrendingAdapter()
+        recyclerViewData.adapter = trendingAdapter
+        mainViewModel.getTrendingRepo()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        mainViewModel.getTrendingRepoDataList().observe(this, Observer {
+            when (it) {
+                is Data.ERROR -> {
+                    var error = it.error
+                }
+                is Data.SUCCESS -> {
+                    it.data?.let { list -> trendingAdapter?.updateList(list) }
+                }
+            }
+        })
 
     }
 
