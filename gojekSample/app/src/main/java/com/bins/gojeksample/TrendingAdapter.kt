@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bins.entity.TrendingData
 import com.bins.gojeksample.databinding.AuthorItemBinding
+import com.sentry.common.loadImage
 
 class TrendingAdapter : RecyclerView.Adapter<DataViewHolder>() {
 
@@ -38,5 +39,6 @@ class DataViewHolder(private var binding: AuthorItemBinding) :
 
     fun bind(dataItem: TrendingData) {
         binding.trendingRepo = TrendingItemVM(dataItem)
+        binding.avatarImage.loadImage(dataItem.avatar?:"")
     }
 }

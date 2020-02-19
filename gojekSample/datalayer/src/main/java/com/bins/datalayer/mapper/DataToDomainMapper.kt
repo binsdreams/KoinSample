@@ -1,4 +1,4 @@
-package com.sentry.data.mappers
+package  com.bins.datalayer.mapper
 
 import com.bins.datalayer.dbtable.TrendingRepoDbEntity
 import com.bins.domain.entity.DataEntity

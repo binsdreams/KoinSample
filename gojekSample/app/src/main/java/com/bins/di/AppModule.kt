@@ -51,7 +51,7 @@ val mViewModels = module {
 
 }
 
-private const val BASE_URL = "https://github-trending-api.now.sh"
+private const val BASE_URL = "https://github-trending-api.now.sh/"
 private const val RETROFIT_INSTANCE = "Retrofit"
 private const val TRENDING_REPO_API = "TRENDING_REPO_API"
 private const val TRENDING_REPO_USECASE = "TRENDING_REPO_USECASE"

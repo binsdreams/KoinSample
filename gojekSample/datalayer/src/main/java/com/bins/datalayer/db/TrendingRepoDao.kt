@@ -1,6 +1,9 @@
 package com.bins.datalayer.db
 
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Delete
+import androidx.room.Insert
+import androidx.room.Query
 import com.bins.datalayer.dbtable.TrendingRepoDbEntity
 import io.reactivex.Flowable
 
@@ -11,7 +14,7 @@ interface TrendingRepoDao {
     @Query("Select * from trendingRepoDbEntity")
     fun getAllRecords(): Flowable<List<TrendingRepoDbEntity>>
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert
     fun saveAllRecords(treadingRepoList: List<TrendingRepoDbEntity>) : List<Long>
 
     @Delete

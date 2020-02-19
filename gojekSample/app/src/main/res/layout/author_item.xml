@@ -12,17 +12,19 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".MainActivity">
+        tools:context=".MainActivity"
+        android:paddingBottom="@dimen/fab_margin">
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/appCompatImageView"
+            android:id="@+id/avatarImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/fab_margin"
             android:minWidth="@dimen/ic_min_w"
             android:minHeight="@dimen/ic_min_h"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            />
 
         <TextView
             android:id="@+id/username"
@@ -33,7 +35,7 @@
             android:textSize="@dimen/textName"
             android:text="@{trendingRepo.name}"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/appCompatImageView"
+            app:layout_constraintStart_toEndOf="@+id/avatarImage"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="@string/app_name" />
 
@@ -47,7 +49,7 @@
             android:layout_marginTop="@dimen/text_margin"
             android:text="@{trendingRepo.url}"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/appCompatImageView"
+            app:layout_constraintStart_toEndOf="@+id/avatarImage"
             app:layout_constraintTop_toBottomOf="@+id/username"
             tools:text="@string/app_name"
             android:layout_marginBottom="@dimen/fab_margin"/>
@@ -59,7 +61,7 @@
             android:layout_marginTop="@dimen/fab_margin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/reponame"
-            app:layout_constraintTop_toBottomOf="@+id/appCompatImageView"
+            app:layout_constraintTop_toBottomOf="@+id/avatarImage"
             android:visibility="@{trendingRepo.detailVisibility()}">
 
             <androidx.appcompat.widget.AppCompatTextView

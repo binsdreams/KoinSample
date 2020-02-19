@@ -5,6 +5,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bins.entity.Data
 import kotlinx.android.synthetic.main.activity_main.*
@@ -24,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         recyclerViewData.layoutManager = LinearLayoutManager(this)
         trendingAdapter = TrendingAdapter()
         recyclerViewData.adapter = trendingAdapter
+        recyclerViewData.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
         mainViewModel.getTrendingRepo()
     }
 

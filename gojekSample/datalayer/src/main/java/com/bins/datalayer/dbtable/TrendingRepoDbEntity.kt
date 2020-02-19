@@ -5,8 +5,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "trendingRepoDbEntity")
 data class TrendingRepoDbEntity(
-    @PrimaryKey(autoGenerate = true)
-    var id :Int? = 0,
+    @PrimaryKey(autoGenerate = true) var id: Int = 0,
     var author: String?,
     var avatar: String?,
     var url:  String?,

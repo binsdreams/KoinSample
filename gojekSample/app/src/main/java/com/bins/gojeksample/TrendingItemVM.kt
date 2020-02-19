@@ -27,7 +27,8 @@ class TrendingItemVM constructor(private var repoItem: TrendingData) : BaseObser
     }
 
     fun getUrl(): String? {
-        return repoItem.url
+        var allSplits = repoItem.url?.split("/")
+        return allSplits?.last()
     }
 
 
