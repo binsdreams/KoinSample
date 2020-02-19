@@ -61,6 +61,7 @@ dependencies {
         exclude group: 'glide-parent'
     }
     implementation rootProject.ext.legacySupport
+    implementation rootProject.ext.shimmer
 
     //Testing lib
     kapt rootProject.ext.glideCompiler

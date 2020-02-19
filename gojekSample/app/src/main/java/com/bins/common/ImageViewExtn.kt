@@ -1,5 +1,7 @@
-package com.sentry.common
+package com.bins.common
 
+import android.graphics.drawable.ColorDrawable
+import android.graphics.drawable.Drawable
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -16,4 +18,8 @@ fun ImageView.loadImage(imageUrl: String) {
         .load(imageUrl)
         .apply(requestOptions)
         .into(this)
+}
+
+private  fun getAnimationPlaceHolder(): Drawable? {
+    return ColorDrawable(-0xa0a0b)
 }

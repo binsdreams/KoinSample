@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.facebook.shimmer.ShimmerFrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools = "http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:duration="700">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".MainActivity"
+        android:paddingBottom="@dimen/fab_margin"
+        android:paddingEnd="@dimen/fab_margin">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/shimmer_avatarImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fab_margin"
+            android:minWidth="@dimen/ic_min_w"
+            android:minHeight="@dimen/ic_min_h"
+            android:src="@drawable/image_shimmer_circle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/shimer_username"
+            android:layout_width="@dimen/shimmer_text_width"
+            android:layout_marginStart="@dimen/fab_margin"
+            android:layout_marginTop="@dimen/fab_margin"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/textName"
+            android:background="@color/lightGray"
+            app:layout_constraintStart_toEndOf="@+id/shimmer_avatarImage"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/reponame"
+            android:layout_width="0dp"
+            android:textSize="@dimen/textRepoName"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/fab_margin"
+            android:layout_marginTop="@dimen/text_margin"
+            android:background="@color/lightGray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/shimmer_avatarImage"
+            app:layout_constraintTop_toBottomOf="@+id/shimer_username"
+            android:layout_marginBottom="@dimen/fab_margin"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.facebook.shimmer.ShimmerFrameLayout>

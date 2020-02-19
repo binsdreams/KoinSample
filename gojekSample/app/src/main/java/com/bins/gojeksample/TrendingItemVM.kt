@@ -4,30 +4,30 @@ import android.view.View
 import androidx.databinding.BaseObservable
 import com.bins.entity.TrendingData
 
-class TrendingItemVM constructor(private var repoItem: TrendingData) : BaseObservable() {
+class TrendingItemVM constructor(private var repoItem: TrendingData?) : BaseObservable() {
 
     fun getName(): String? {
-       return repoItem.author
+       return repoItem?.author
     }
 
     fun getForks(): String? {
-        return repoItem.forks.toString()
+        return repoItem?.forks.toString()
     }
 
     fun getStars(): String? {
-        return repoItem.stars.toString()
+        return repoItem?.stars.toString()
     }
 
     fun getDescription(): String? {
-        return repoItem.description
+        return repoItem?.description
     }
 
     fun getAvatar(): String? {
-        return repoItem.avatar
+        return repoItem?.avatar
     }
 
     fun getUrl(): String? {
-        var allSplits = repoItem.url?.split("/")
+        var allSplits = repoItem?.url?.split("/")
         return allSplits?.last()
     }
 

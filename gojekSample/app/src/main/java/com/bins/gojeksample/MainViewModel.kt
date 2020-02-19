@@ -29,4 +29,12 @@ class MainViewModel(private val trendingRepoUseCase: TrendingRepoUseCase): BaseV
     }
 
     fun getTrendingRepoDataList() = dataList
+
+    fun getEmptyListForShimmer():List<TrendingData?>{
+        val arrayList = ArrayList<TrendingData?>(10)
+        for (i in 0..10){
+            arrayList.add(null)
+        }
+        return arrayList
+    }
 }

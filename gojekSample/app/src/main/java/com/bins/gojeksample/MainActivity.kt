@@ -26,7 +26,9 @@ class MainActivity : AppCompatActivity() {
         trendingAdapter = TrendingAdapter()
         recyclerViewData.adapter = trendingAdapter
         recyclerViewData.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
+        trendingAdapter.updateList(mainViewModel.getEmptyListForShimmer())
         mainViewModel.getTrendingRepo()
+
     }
 
     override fun onStart() {
