@@ -1,12 +1,12 @@
 package com.sentry.data.api
 
 import com.sentry.data.entities.TrendingRepoResponse
-import io.reactivex.Single
+import kotlinx.coroutines.Deferred
 import retrofit2.http.GET
 
 interface TrendingRepoApi {
 
     @GET("/repositories?")
-    fun getAllTrendingRepos(): Single<List<TrendingRepoResponse>>
+    fun getTrendingRepository(): Deferred<List<TrendingRepoResponse>>
 
 }

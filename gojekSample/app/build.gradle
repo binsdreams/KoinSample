@@ -80,5 +80,5 @@ dependencies {
     // Espresso dependencies
     androidTestImplementation rootProject.ext.expresso
 
-    implementation project(':domain')
+    implementation project(':datalayer')
 }

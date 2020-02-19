@@ -49,5 +49,4 @@ dependencies {
     // Espresso dependencies
     androidTestImplementation rootProject.ext.expresso
 
-    api project(':datalayer')
 }

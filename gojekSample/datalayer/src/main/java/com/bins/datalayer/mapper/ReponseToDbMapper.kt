@@ -5,10 +5,10 @@ import com.sentry.data.entities.TrendingRepoResponse
 
 class ResponseDataToDomainEntityMapper {
 
-    fun map(response: List<TrendingRepoResponse>?) =mapToDbEntityList(response)
+    fun map(response: List<TrendingRepoResponse>?) :List<TrendingRepoDbEntity>  =mapToDbEntityList(response)
 
-    private fun mapToDbEntityList(articles: List<TrendingRepoResponse>?)
-            : List<TrendingRepoDbEntity> = articles?.map { mapToDbEntity(it) } ?: emptyList()
+    private fun mapToDbEntityList(responses: List<TrendingRepoResponse>?)
+            : List<TrendingRepoDbEntity> = responses?.map { mapToDbEntity(it) } ?: emptyList()
 
     private fun mapToDbEntity(response: TrendingRepoResponse): TrendingRepoDbEntity = TrendingRepoDbEntity(
         author= response.author,
