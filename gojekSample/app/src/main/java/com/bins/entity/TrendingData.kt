@@ -10,4 +10,5 @@ data class TrendingData(
     var stars : Int?,
     var forks : Int?,
     var currentPeriodStars :Int?,
-    var timeStamp :Long)
+    var timeStamp :Long,
+    var isOpen :Boolean = false)

@@ -19,7 +19,3 @@ fun ImageView.loadImage(imageUrl: String) {
         .apply(requestOptions)
         .into(this)
 }
-
-private  fun getAnimationPlaceHolder(): Drawable? {
-    return ColorDrawable(-0xa0a0b)
-}

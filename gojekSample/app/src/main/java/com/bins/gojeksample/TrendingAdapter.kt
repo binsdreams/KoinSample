@@ -63,6 +63,8 @@ class DataViewHolder(private var binding: AuthorItemBinding) :
 
     fun bind(dataItem: TrendingData?) {
         binding.trendingRepo = TrendingItemVM(dataItem)
+        var isOpen =  dataItem?.isOpen?:false
+        binding.additionInfoPanel.visibility = if(isOpen) View.VISIBLE else View.GONE
         binding.avatarImage.loadImage(dataItem?.avatar?:"")
     }
 }

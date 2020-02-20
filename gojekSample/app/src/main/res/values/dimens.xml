@@ -3,6 +3,7 @@
     <dimen name="text_margin">10dp</dimen>
     <dimen name="ic_min_h">50dp</dimen>
     <dimen name="ic_min_w">50dp</dimen>
+    <dimen name="start_padding_details">86dp</dimen>
 
     <dimen name="shimmer_text_width">200dp</dimen>
     <dimen name="textName">14sp</dimen>

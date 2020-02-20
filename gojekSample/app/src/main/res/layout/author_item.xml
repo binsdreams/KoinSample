@@ -9,117 +9,115 @@
         <variable name="trendingRepo" type="com.bins.gojeksample.TrendingItemVM" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".MainActivity"
-        android:paddingBottom="@dimen/fab_margin"
-        android:clickable="true"
-        android:focusableInTouchMode="true"
-        android:onClick="@{trendingRepo.onRowClick()}"
-        android:background="@drawable/rv_selector_bg">
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/avatarImage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/fab_margin"
-            android:minWidth="@dimen/ic_min_w"
-            android:minHeight="@dimen/ic_min_h"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
-
-        <TextView
-            android:id="@+id/username"
-            android:layout_width="0dp"
-            android:layout_marginStart="@dimen/fab_margin"
-            android:layout_marginTop="@dimen/fab_margin"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/textName"
-            android:text="@{trendingRepo.name}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/avatarImage"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="@string/app_name" />
-
-        <TextView
-            android:id="@+id/reponame"
-            android:layout_width="0dp"
-            android:textSize="@dimen/textRepoName"
-            android:textStyle="bold"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/fab_margin"
-            android:layout_marginTop="@dimen/text_margin"
-            android:text="@{trendingRepo.url}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/avatarImage"
-            app:layout_constraintTop_toBottomOf="@+id/username"
-            tools:text="@string/app_name"
-            android:layout_marginBottom="@dimen/fab_margin"/>
+        android:orientation="vertical"
+        android:animateLayoutChanges="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/additionInfoPanel"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/fab_margin"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/reponame"
-            app:layout_constraintTop_toBottomOf="@+id/avatarImage"
+            tools:context=".MainActivity"
+            android:onClick="@{trendingRepo.onRowClick()}"
+            android:background="@drawable/rv_selector_bg"
+            android:paddingBottom="@dimen/fab_margin">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/avatarImage"
+                android:layout_width="@dimen/ic_min_w"
+                android:layout_height="@dimen/ic_min_w"
+                android:layout_margin="@dimen/fab_margin"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="0dp"
+                android:layout_marginStart="@dimen/fab_margin"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/textName"
+                android:text="@{trendingRepo.name}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/avatarImage"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/app_name" />
+
+            <TextView
+                android:id="@+id/reponame"
+                android:layout_width="0dp"
+                android:textSize="@dimen/textRepoName"
+                android:textStyle="bold"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/fab_margin"
+                android:layout_marginTop="@dimen/text_margin"
+                android:text="@{trendingRepo.url}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/avatarImage"
+                app:layout_constraintTop_toBottomOf="@+id/username"
+                tools:text="@string/app_name"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:id="@+id/additionInfoPanel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/start_padding_details"
             android:visibility="@{trendingRepo.detailVisibility()}">
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/description"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/textDescription"
                 android:text="@{trendingRepo.description}"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                android:textSize="@dimen/textDescription"
                 tools:text="@string/app_name" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/language"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/textDescription"
-                android:layout_marginTop="@dimen/fab_margin"
-                android:layout_marginEnd="@dimen/fab_margin"
-                android:text="@{trendingRepo.language}"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/description"
-                android:drawableStart="@drawable/staryellow"
-                app:drawableStartCompat="@drawable/staryellow"
-                tools:text="c++" />
+                android:orientation="horizontal">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/star"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/fab_margin"
-                android:textSize="@dimen/textDescription"
-                android:text="@{trendingRepo.stars}"
-                app:layout_constraintStart_toEndOf="@+id/language"
-                app:layout_constraintTop_toBottomOf="@+id/description"
-                android:drawableStart="@drawable/staryellow"
-                app:drawableStartCompat="@drawable/staryellow"
-                tools:text="132" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/language"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/fab_margin"
+                    android:layout_marginEnd="@dimen/fab_margin"
+                    android:drawableStart="@drawable/staryellow"
+                    android:text="@{trendingRepo.language}"
+                    android:textSize="@dimen/textDescription"
+                    app:drawableStartCompat="@drawable/staryellow"
+                    tools:text="c++" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/fork"
-                android:layout_width="wrap_content"
-                android:layout_margin="@dimen/fab_margin"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/textDescription"
-                android:text="@{trendingRepo.forks}"
-                app:layout_constraintStart_toEndOf="@+id/star"
-                app:layout_constraintTop_toBottomOf="@+id/description"
-                android:drawableStart="@drawable/forkblack"
-                app:drawableStartCompat="@drawable/forkblack"
-                tools:text="1231" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/star"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/fab_margin"
+                    android:drawableStart="@drawable/staryellow"
+                    android:text="@{trendingRepo.stars}"
+                    android:textSize="@dimen/textDescription"
+                    app:drawableStartCompat="@drawable/staryellow"
+                    tools:text="132" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/fork"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/fab_margin"
+                    android:drawableStart="@drawable/forkblack"
+                    android:text="@{trendingRepo.forks}"
+                    android:textSize="@dimen/textDescription"
+                    app:drawableStartCompat="@drawable/forkblack"
+                    tools:text="1231" />
+            </LinearLayout>
+        </LinearLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
 </layout>

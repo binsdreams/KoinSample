@@ -7,7 +7,7 @@ import com.bins.entity.TrendingData
 class TrendingItemVM constructor(private var repoItem: TrendingData?) : BaseObservable() {
 
     fun getName(): String? {
-       return repoItem?.author
+        return repoItem?.author
     }
 
     fun getForks(): String? {
@@ -37,11 +37,14 @@ class TrendingItemVM constructor(private var repoItem: TrendingData?) : BaseObse
     }
 
     fun detailVisibility(): Int? {
-        return View.GONE
+        var isOpen =  repoItem?.isOpen?:false
+        return if(isOpen)View.VISIBLE else View.GONE
     }
 
     fun onRowClick(): View.OnClickListener? {
         return View.OnClickListener {
+            var isOpen =  repoItem?.isOpen?:false
+            repoItem?.isOpen = isOpen.not()
             notifyChange()
         }
     }
