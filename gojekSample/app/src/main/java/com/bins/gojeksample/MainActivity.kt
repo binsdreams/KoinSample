@@ -12,6 +12,7 @@ import com.bins.entity.Data
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
+const val lastVisiblePosition ="scrolldedPosition"
 class MainActivity : AppCompatActivity() {
 
     private val mainViewModel: MainViewModel by viewModel()
@@ -28,9 +29,9 @@ class MainActivity : AppCompatActivity() {
         recyclerViewData.adapter = trendingAdapter
         recyclerViewData.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
         trendingAdapter.updateList(mainViewModel.getEmptyListForShimmer())
-        mainViewModel.getTrendingRepo()
+        mainViewModel.getTrendingRepo(false)
         swipeRefreshLayoutLayout.setOnRefreshListener {
-            mainViewModel.getTrendingRepo()
+            mainViewModel.getTrendingRepo(true)
         }
     }
 
@@ -41,14 +42,33 @@ class MainActivity : AppCompatActivity() {
                 is Data.ERROR -> {
                     var error = it.error
                     swipeRefreshLayoutLayout.isRefreshing = false
+                    noNetowrkScreen.visibility = View.VISIBLE
+
                 }
                 is Data.SUCCESS -> {
+                    noNetowrkScreen.visibility = View.GONE
                     swipeRefreshLayoutLayout.isRefreshing = false
                     it.data?.let { list -> trendingAdapter?.updateList(list) }
                 }
             }
         })
     }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        var layoutManager = recyclerViewData.layoutManager as LinearLayoutManager
+        outState.putInt("lastVisiblePosition",layoutManager.findFirstVisibleItemPosition())
+    }
+    
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        var visiblePosition = savedInstanceState.getInt("lastVisiblePosition")
+        recyclerViewData.post {
+            recyclerViewData.scrollToPosition(visiblePosition)
+        }
+    }
+
+
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -67,7 +87,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onRetryClick(view :View){
-        mainViewModel.getTrendingRepo()
+        noNetowrkScreen.visibility = View.GONE
+        mainViewModel.getTrendingRepo(true)
     }
 }
 

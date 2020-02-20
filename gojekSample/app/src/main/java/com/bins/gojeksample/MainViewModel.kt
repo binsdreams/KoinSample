@@ -16,13 +16,17 @@ class MainViewModel(private val trendingRepoUseCase: TrendingRepoUseCase): BaseV
     private val mapper  =TrendingRepoDomainToPresentationMapper()
     var dataList = MutableLiveData<Data<List<TrendingData>>>()
 
-    fun getTrendingRepo() {
-        launch {
-            val deviceInfo = trendingRepoUseCase.execute()
-            deviceInfo.consumeEach {response ->
-                val mappedResponse = mapper.mapFrom(response)
-                withContext(Dispatchers.Main) {
-                    dataList.postValue(mappedResponse)
+    fun getTrendingRepo(foreRefresh :Boolean) {
+        if(dataList.value != null && !foreRefresh) {
+            dataList.postValue(dataList.value)
+        }else{
+            launch {
+                val deviceInfo = trendingRepoUseCase.execute()
+                deviceInfo.consumeEach { response ->
+                    val mappedResponse = mapper.mapFrom(response)
+                    withContext(Dispatchers.Main) {
+                        dataList.postValue(mappedResponse)
+                    }
                 }
             }
         }
