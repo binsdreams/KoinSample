@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">gojekSample</string>
     <string name="action_settings">Settings</string>
+    <string name="somthingWentWrong">Something went wrong...</string>
+    <string name="alienBlocking">An alien is probably blocking your signal</string>
+    <string name="retry">RETRY</string>
 </resources>

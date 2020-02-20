@@ -3,6 +3,7 @@ package com.bins.gojeksample
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -28,7 +29,9 @@ class MainActivity : AppCompatActivity() {
         recyclerViewData.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
         trendingAdapter.updateList(mainViewModel.getEmptyListForShimmer())
         mainViewModel.getTrendingRepo()
-
+        swipeRefreshLayoutLayout.setOnRefreshListener {
+            mainViewModel.getTrendingRepo()
+        }
     }
 
     override fun onStart() {
@@ -37,13 +40,14 @@ class MainActivity : AppCompatActivity() {
             when (it) {
                 is Data.ERROR -> {
                     var error = it.error
+                    swipeRefreshLayoutLayout.isRefreshing = false
                 }
                 is Data.SUCCESS -> {
+                    swipeRefreshLayoutLayout.isRefreshing = false
                     it.data?.let { list -> trendingAdapter?.updateList(list) }
                 }
             }
         })
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -61,4 +65,9 @@ class MainActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
+
+    fun onRetryClick(view :View){
+        mainViewModel.getTrendingRepo()
+    }
 }
+
