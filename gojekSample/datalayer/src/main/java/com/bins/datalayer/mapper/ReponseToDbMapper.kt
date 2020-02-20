@@ -1,7 +1,7 @@
 package  com.bins.datalayer.mapper
 
 import com.bins.datalayer.dbtable.TrendingRepoDbEntity
-import com.sentry.data.entities.TrendingRepoResponse
+import com.bins.datalayer.response.TrendingRepoResponse
 
 class ResponseDataToDomainEntityMapper {
 

@@ -1,6 +1,7 @@
-package com.sentry.di
+package com.bins.di
 
 import androidx.room.Room
+import com.bins.datalayer.api.TrendingRepoApi
 import com.bins.datalayer.db.GitRepoDatabase
 import com.bins.datalayer.repository.TrendingRepositoryCache
 import com.bins.datalayer.repository.TrendingRepositoryImpl
@@ -9,7 +10,6 @@ import com.bins.datalayer.util.NetworkUtil
 import com.bins.domain.repository.TrendingRepository
 import com.bins.domain.usecase.TrendingRepoUseCase
 import com.bins.gojeksample.MainViewModel
-import com.sentry.data.api.TrendingRepoApi
 import org.koin.android.ext.koin.androidApplication
 import org.koin.android.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module

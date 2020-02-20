@@ -1,4 +1,4 @@
-package com.sentry.di
+package com.bins.di
 
 import android.content.Context
 import android.net.ConnectivityManager

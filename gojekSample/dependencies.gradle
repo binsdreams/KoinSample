@@ -60,4 +60,5 @@ ext {
 
     // Espresso dependencies
     expresso = "androidx.test.espresso:espresso-core:$espressoVersion"
+    expressoContrib = "androidx.test.espresso:espresso-contrib:$espressoVersion"
 }

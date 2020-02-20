@@ -1,6 +1,6 @@
-package com.sentry.data.api
+package  com.bins.datalayer.api
 
-import com.sentry.data.entities.TrendingRepoResponse
+import com.bins.datalayer.response.TrendingRepoResponse
 import kotlinx.coroutines.Deferred
 import retrofit2.http.GET
 

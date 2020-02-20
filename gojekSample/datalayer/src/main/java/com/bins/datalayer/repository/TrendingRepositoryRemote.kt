@@ -1,10 +1,9 @@
 package com.bins.datalayer.repository
 
+import com.bins.datalayer.api.TrendingRepoApi
 import com.bins.datalayer.dbtable.TrendingRepoDbEntity
 import com.bins.datalayer.mapper.ResponseDataToDomainEntityMapper
-import com.bins.datalayer.repository.TrendingDataStore
 import com.bins.domain.entity.DataEntity
-import com.sentry.data.api.TrendingRepoApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.channels.ReceiveChannel
 import kotlinx.coroutines.channels.produce

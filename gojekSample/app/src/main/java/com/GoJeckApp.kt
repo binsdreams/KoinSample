@@ -1,7 +1,7 @@
 package com
 
 import android.app.Application
-import com.sentry.di.*
+import com.bins.di.*
 import org.koin.android.ext.android.startKoin
 
 class GoJeckApp : Application() {

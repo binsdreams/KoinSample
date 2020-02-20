@@ -1,4 +1,4 @@
-package com.sentry.data.entities
+package com.bins.datalayer.response
 
 import com.google.gson.annotations.SerializedName
 

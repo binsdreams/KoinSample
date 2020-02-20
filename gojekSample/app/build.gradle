@@ -81,6 +81,7 @@ dependencies {
     androidTestImplementation rootProject.ext.googleTestTruth
     // Espresso dependencies
     androidTestImplementation rootProject.ext.expresso
+    androidTestImplementation rootProject.ext.expressoContrib
 
     implementation project(':datalayer')
 }
