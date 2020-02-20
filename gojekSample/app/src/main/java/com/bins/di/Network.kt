@@ -1,5 +1,9 @@
 package com.sentry.di
 
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
+import android.os.Build
 import com.bins.gojeksample.BuildConfig
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.OkHttpClient
@@ -30,3 +34,4 @@ private fun retrofitClient(baseUrl: String, httpClient: OkHttpClient): Retrofit 
         .addConverterFactory(GsonConverterFactory.create())
         .addCallAdapterFactory(CoroutineCallAdapterFactory())
         .build()
+

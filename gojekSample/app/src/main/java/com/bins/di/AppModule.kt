@@ -2,6 +2,7 @@ package com.sentry.di
 
 import androidx.room.Room
 import com.bins.datalayer.db.GitRepoDatabase
+import com.bins.datalayer.util.NetworkUtil
 import com.bins.domain.repository.TrendingRepository
 import com.bins.domain.usecase.TrendingRepoUseCase
 import com.bins.gojeksample.MainViewModel
@@ -17,7 +18,8 @@ import retrofit2.Retrofit
 val mRepositoryModules = module {
     single(name = "remote") { TrendingRepositoryRemote(api = get(TRENDING_REPO_API)) }
     single(name = "local") { TrendingRepositoryCache(database = get(DATABASE)) }
-    single { TrendingRepositoryImpl(remote = get("remote"), cache = get("local")) as TrendingRepository }
+    single { TrendingRepositoryImpl(remote = get("remote"), cache = get("local"),
+        networkState = NetworkUtil(androidApplication())) as TrendingRepository }
 }
 
 val mUseCaseModules = module {
