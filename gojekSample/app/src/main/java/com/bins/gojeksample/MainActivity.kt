@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
         var layoutManager = recyclerViewData.layoutManager as LinearLayoutManager
         outState.putInt("lastVisiblePosition",layoutManager.findFirstVisibleItemPosition())
     }
-    
+
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
         var visiblePosition = savedInstanceState.getInt("lastVisiblePosition")

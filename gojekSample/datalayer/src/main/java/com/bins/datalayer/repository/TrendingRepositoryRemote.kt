@@ -1,4 +1,4 @@
-package com.sentry.data.repository
+package com.bins.datalayer.repository
 
 import com.bins.datalayer.dbtable.TrendingRepoDbEntity
 import com.bins.datalayer.mapper.ResponseDataToDomainEntityMapper
@@ -22,5 +22,8 @@ class TrendingRepositoryRemote(private val api: TrendingRepoApi) : TrendingDataS
                 send(DataEntity.ERROR(""+e.message))
             }
         }
+    }
+
+    override fun saveReadings(response: List<TrendingRepoDbEntity>?) {
     }
 }

@@ -2,14 +2,14 @@ package com.sentry.di
 
 import androidx.room.Room
 import com.bins.datalayer.db.GitRepoDatabase
+import com.bins.datalayer.repository.TrendingRepositoryCache
+import com.bins.datalayer.repository.TrendingRepositoryImpl
+import com.bins.datalayer.repository.TrendingRepositoryRemote
 import com.bins.datalayer.util.NetworkUtil
 import com.bins.domain.repository.TrendingRepository
 import com.bins.domain.usecase.TrendingRepoUseCase
 import com.bins.gojeksample.MainViewModel
 import com.sentry.data.api.TrendingRepoApi
-import com.sentry.data.repository.TrendingRepositoryCache
-import com.sentry.data.repository.TrendingRepositoryImpl
-import com.sentry.data.repository.TrendingRepositoryRemote
 import org.koin.android.ext.koin.androidApplication
 import org.koin.android.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module
@@ -48,7 +48,7 @@ val mLocalModules = module {
 val mViewModels = module {
 
     viewModel {
-        MainViewModel(trendingRepoUseCase = get(TRENDING_REPO_USECASE))
+        MainViewModel(trendingRepoUseCase = get(TRENDING_REPO_USECASE),application = androidApplication())
     }
 
 }

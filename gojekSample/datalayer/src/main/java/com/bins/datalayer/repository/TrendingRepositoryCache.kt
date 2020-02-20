@@ -1,8 +1,7 @@
-package com.sentry.data.repository
+package com.bins.datalayer.repository
 
 import com.bins.datalayer.db.GitRepoDatabase
 import com.bins.datalayer.dbtable.TrendingRepoDbEntity
-import com.bins.datalayer.repository.TrendingDataStore
 import com.bins.domain.entity.DataEntity
 import kotlinx.coroutines.channels.ReceiveChannel
 import kotlinx.coroutines.reactive.openSubscription
@@ -19,7 +18,7 @@ class TrendingRepositoryCache(private val database: GitRepoDatabase) : TrendingD
     }
 
 
-    fun saveReadings(response: List<TrendingRepoDbEntity>?) {
+    override fun saveReadings(response: List<TrendingRepoDbEntity>?) {
         response.let {  trendingRepoDao.deleteAll()
             trendingRepoDao.saveAllRecords(it?: emptyList())
         }

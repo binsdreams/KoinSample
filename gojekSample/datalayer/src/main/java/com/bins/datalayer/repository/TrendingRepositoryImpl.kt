@@ -1,4 +1,4 @@
-package com.sentry.data.repository
+package com.bins.datalayer.repository
 
 import com.bins.datalayer.mapper.DataToDomainMapper
 import com.bins.datalayer.util.NetworkUtil
